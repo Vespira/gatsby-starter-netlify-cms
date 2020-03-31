@@ -27,7 +27,23 @@ So be it, I will try to summarize here fundamentals steps to understand and use 
 What we can note about the schema :
 
 * Jobs can be dispatched in queue(s), either programmatically (in a method) or via a cron task regularly running against the scheduled task in the Kernel.php file, that verify if it need to executes an action.
-
 * The step 1 and 2 can be ignored it's juste business action who are retrieved in the Job executed.
-
 * Note that the Job and tasks are asynchronous. They are totally detached from the programm lifecycle, and are executed when the daemon decides to process it.
+
+
+
+### Step #1 : Prepare a battle plan (Queue configuration)
+
+You have to wire first all the configuration before getting started. If like me, you already had a project, without queue configured, you don't have any example file to use. The docs at this stage, are really poor, and information is scattered through the net.
+
+If you are using Lumen >= 5.7 like me, in your **.env** file, add the following key :
+
+```
+QUEUE_CONNECTION=driver_name
+```
+
+where driver_name is the way you want to store your queued elements. Personnaly, I went for 'database' so the key is \`\`QUEUE_CONNECTION=database\`\`
+
+For **Lumen < 5.7,** just replace the \`QUEUE_CONNECTION\` with \`QUEUE_DRIVER\` key.
+
+Then, you need to create (if not present) a **queue.php** configuration file under the config directory of project. As the file wasn't created, I read bit of information on differents website (official Laravel docs doesn't even mention that) and I had an incomplete file, not understanding what could go wrong : no errors are shown up if your conf file return unexpected elements !
