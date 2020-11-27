@@ -7,11 +7,11 @@ Store your scripts so they can be used globally into :
 > /usr/local/bin
 
 Launch a background process to run even after the user log out :
-
-\#nohup <command> &
+```shell
+nohup <command> &
+```
 
 List running processes : 
-
 ```shell
 # Simple list
 ps -ax
@@ -22,35 +22,43 @@ htop
 ```
 
 Kill a process by it's PID : 
-
-\#kill -9 <PID>
+```shell
+kill -9 <PID>
+```
 
 Create a symlink :
-
-\#ln -s <source> <target>
+```shell
+ln -s /path/to/source/ /path/to/target
+```
 
 List cron tasks for a given user :
-
-\# crontab -l -u www-data
+```shell
+crontab -l -u <USERNAME>
+```
 
 Convert a file with DOS-like linefeeds into Linux-like linefeeds :
-
-\#sed -i -e 's/\r$//' <filename>
+```shell
+sed -i -e 's/\r$//' ./file
+```
 
 Configure a key/password into SSH agent :
-
-\#eval \`ssh-agent\`
-
-\#ssh-add <path/to/key> (by default, add the id_rsa key)
+```shell
+eval \`ssh-agent\`
+# By default, add the id_rsa key
+ssh-add /path/to/key
+```
 
 Display current directory:
-
-\#pwd
+```shell
+pwd
+```
 
 Display file content in real-time :
-
-\#tail -f /path/to/file
+```shell
+tail -f ./file
+```
 
 Search for a keyword recursivly in directory files :
-
-\# grep -r "word"
+```shell
+grep -r "word"
+```
