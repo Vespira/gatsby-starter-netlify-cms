@@ -13,12 +13,10 @@ Launch a background process to run even after the user log out :
 List running processes : 
 
 ```shell
+# Simple list
 ps -ax
-```
-```shell
+# Built in advanced tool
 top
-```
-```shell
 # External tool, very powerful, you can sort by uptime, cpu or ram usage, etc ...
 htop 
 ```
